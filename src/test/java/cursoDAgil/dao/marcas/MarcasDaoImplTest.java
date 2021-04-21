@@ -89,7 +89,7 @@ public class MarcasDaoImplTest {
 		System.out.println("Prueba unitaria de actualizarMarca");
 		Marcas marca = new Marcas();
 		try{
-			marca.setIdMarca(4);
+			marca.setIdMarca(4); 
 			marca.setNombreMarca("Totis");
 			marcasDao.actualizarMarca(marca);
 		} catch(Exception ex){

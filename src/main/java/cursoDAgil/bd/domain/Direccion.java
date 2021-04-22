@@ -7,6 +7,7 @@ public class Direccion {
 	private String colonia;
 	private String ciudad;
 	private String estado;
+
 	private String pais;
 	private Integer codigoPostal;
 

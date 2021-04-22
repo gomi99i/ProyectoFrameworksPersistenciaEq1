@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cursoDAgil.bd.domain.Productos;
-import cursoDAgil.dao.Productos.ProductosDao;
+import cursoDAgil.dao.productos.ProductosDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/applicationContext.xml"})

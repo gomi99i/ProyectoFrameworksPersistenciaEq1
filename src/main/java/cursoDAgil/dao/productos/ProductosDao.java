@@ -1,4 +1,4 @@
-package cursoDAgil.dao.Productos;
+package cursoDAgil.dao.productos;
 
 import java.util.List;
 import java.util.Map;

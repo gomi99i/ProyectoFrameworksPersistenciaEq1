@@ -8,6 +8,6 @@
 		<mapper resource="cursoDAgil/bd/mappers/DireccionMapper.xml" /> 
 		<mapper resource="cursoDAgil/bd/mappers/MarcasMapper.xml" /> 
 		<mapper resource="cursoDAgil/bd/mappers/ProductosMapper.xml" /> 
-		
+		<mapper resource="cursoDAgil/bd/mappers/GananciasMapper.xml" /> 
 	</mappers>
 </configuration> 

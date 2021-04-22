@@ -1,4 +1,4 @@
-package cursoDAgil.dao.Productos;
+package cursoDAgil.dao.productos;
 
 import java.util.List;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class ProductosDaoImpl implements ProductosDao{
 	public Integer nuevoProductoMarca(Productos producto) {
 		try{
 			ProductosMapper productoMapper = sqlSession.getMapper(ProductosMapper.class);
-			System.out.println("producto creada con éxito");			
+			System.out.println("producto creada con ï¿½xito");			
 			return productoMapper.nuevoProductoMarca(producto);
 		}catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -38,7 +38,7 @@ public class ProductosDaoImpl implements ProductosDao{
 	public Integer eliminarProductoPorId(Map<String, Integer> mapDireccion) {
 		try{
 			ProductosMapper productoMapper = sqlSession.getMapper(ProductosMapper.class);
-			System.out.println("producto Eliminado con éxito");			
+			System.out.println("producto Eliminado con ï¿½xito");			
 			return productoMapper.eliminarProductoPorId(mapDireccion);
 		}catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -50,7 +50,7 @@ public class ProductosDaoImpl implements ProductosDao{
 	public Integer cambiarProductoPorId(Productos producto, Integer id){
 		try{
 			ProductosMapper productoMapper = sqlSession.getMapper(ProductosMapper.class);
-			System.out.println("producto cambiado con éxito");	
+			System.out.println("producto cambiado con ï¿½xito");	
 			producto.setIdProducto(id); // en el caso de que se cambio el ID
 			return productoMapper.cambiarProductoPorId(producto);
 		}catch (Exception e) {

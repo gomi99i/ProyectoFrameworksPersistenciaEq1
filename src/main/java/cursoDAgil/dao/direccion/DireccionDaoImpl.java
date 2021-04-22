@@ -13,6 +13,7 @@ import cursoDAgil.bd.mappers.DireccionMapper;
 
 @Named
 public class DireccionDaoImpl implements DireccionDao {
+
 	SqlSession sqlSession;
 
 	@Autowired
@@ -22,10 +23,23 @@ public class DireccionDaoImpl implements DireccionDao {
 
 	@Override
 	public Integer nuevaDireccionCliente(Direccion direccion) {
+		// TODO Auto-generated method stub
 		try {
 			DireccionMapper direccionMapper = sqlSession.getMapper(DireccionMapper.class);
-			System.out.println("direccion creada con Ã©xito");
+			System.out.println("direccion creada con éxito");
 			return direccionMapper.nuevaDireccionCliente(direccion);
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Direccion> obtenerDirecciones() {
+		try {
+			DireccionMapper direccionMapper = sqlSession.getMapper(DireccionMapper.class);
+
+			return direccionMapper.obtenerDirecciones();
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -44,13 +58,34 @@ public class DireccionDaoImpl implements DireccionDao {
 	}
 
 	@Override
-	public List<Direccion> obtenerDirecciones() {
-		try {
+	public Integer eliminarDireccion(Map<String, Integer> mapDireccion) {
+		// TODO Auto-generated method stub
+		try{
 			DireccionMapper direccionMapper = sqlSession.getMapper(DireccionMapper.class);
-			return direccionMapper.obtenerDirecciones();
-		} catch (Exception e) {
+			System.out.println("Hasta la vista BABY");
+			return direccionMapper.eliminarDireccion(mapDireccion);
+			
+		}catch (Exception e){
 			System.out.println("Error: " + e);
 		}
 		return null;
 	}
+
+	@Override
+	public Integer cambiarDireccion(Direccion direccion, Integer id) {
+		// TODO Auto-generated method stub
+		try{
+			DireccionMapper direccionMapper =sqlSession.getMapper(DireccionMapper.class);
+			System.out.println("Ya la cambie ve a checar a la base de datos");
+			direccion.setIdDireccion(id);
+			return direccionMapper.cambiarDireccion(direccion);
+
+		}catch (Exception e){
+			System.out.println("Error" + e);
+		}
+		return null;
+	}
+
+	
+	
 }

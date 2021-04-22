@@ -15,7 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cursoDAgil.bd.domain.Productos;
-import cursoDAgil.dao.Productos.ProductosDao;
+import cursoDAgil.dao.productos.ProductosDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/applicationContext.xml"})
@@ -24,7 +24,7 @@ public class ProductoDaoImplTest {
 	@Inject
 	ProductosDao productosDao;
 	
-	@Test
+	@Ignore
 	public void consultarProductoPorId(){
 		System.out.println("----------------Teste consultar por ID -----------------------");
 		Productos productos = new Productos();
@@ -38,14 +38,13 @@ public class ProductoDaoImplTest {
 			System.out.println("Precio: $" + productos.getPrecio());
 			System.out.println("PrecioVta: $" + productos.getPrecioVta());
 			System.out.println("cantidad:" + productos.getCantidad());
-
+			System.out.println("marca: " + productos.getMarcas().getNombreMarca());
 		}catch(Exception e){
 			System.out.println("Error: " + e);
 		}
 	}
 	
-	
-	@Test
+	@Ignore
 	public void pruebaConsultarTodo(){
 		System.out.println("----------------Test consultar todo -----------------------");
 		int reg;
@@ -55,6 +54,15 @@ public class ProductoDaoImplTest {
 			reg=lista.size();
 			assertEquals(lista.size(),reg);
 			System.out.println("\nNumero de Registros en la tabla: " + reg);
+			for(Productos productos : lista){
+				System.out.println("id:" + productos.getIdProducto());
+				System.out.println("nombre del producto:" + productos.getNombre());
+				System.out.println("Precio: $" + productos.getPrecio());
+				System.out.println("PrecioVta: $" + productos.getPrecioVta());
+				System.out.println("cantidad:" + productos.getCantidad());
+				System.out.println("marca: " + productos.getMarcas().getNombreMarca());
+				System.out.println();
+			}
 		}catch(Exception ex){
 			System.out.println("error" + ex);
 
@@ -96,11 +104,11 @@ public class ProductoDaoImplTest {
 		}
 	}
 	
-	@Test
+	@Ignore
 	public void eliminarRegistro(){
 		Productos productos = new Productos();
 		Map<String, Integer> mapProducto = new HashMap<>();
-		mapProducto.put("idProducto",8);
+		mapProducto.put("idProducto",15);
 		System.out.println("----------------Test Eliminar Producto -----------------------");
 		try{
 			productos=productosDao.obtenerProductoPorId(mapProducto);

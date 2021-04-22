@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cursoDAgil.bd.mappers.GananciasMapper">
+  
+	<resultMap id="BaseResultMap" type="cursoDAgil.bd.domain.Ganancias">
+		<id column="idGanancia" jdbcType="INTEGER" property="idGanancia" />
+		<result column="ventaId" jdbcType="INTEGER" property="ventaId" />
+		<result column="totalGanancia" jdbcType="DOUBLE" property="totalGanancia" />
+		<result column="fecha" jdbcType="DATE" property="fecha" />
+	</resultMap>
+  
+	<select id="obtenerGanancias" resultMap="BaseResultMap">
+		SELECT * FROM ganancias
+	</select>
+    
+	 <select id="obtenerGananciaPorFecha" resultMap="BaseResultMap"
+		parameterType="hashMap">
+		SELECT g.idGanancia,g.ventaId,totalGanancia,g.fecha
+		FROM equipo1.ganancias g WHERE fecha = #{fecha}
+	</select>
+
+	<insert id="nuevaGanancia" parameterType="cursoDAgil.bd.domain.Ganancias"
+		useGeneratedKeys="true" keyProperty="idGanancia">
+		INSERT INTO ganancias(idGanancia, ventaId, totalGanancia, fecha) 
+		VALUES (#{idGanancia},#{ventaId},#{totalGanancia},#{fecha})
+	</insert>
+ 
+</mapper>

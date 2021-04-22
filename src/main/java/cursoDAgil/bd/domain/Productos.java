@@ -8,6 +8,18 @@ public class Productos {
 	private Integer cantidad;
 	private Integer marcaId;
 	
+	private Marcas marcas;
+	
+	public Productos(){
+		setMarcas(new Marcas());
+	}
+	public Marcas getMarcas() {
+		return marcas;
+	}
+	public void setMarcas(Marcas marcas) {
+		this.marcas = marcas;
+	}
+	
 	public Integer getIdProducto(){
 		return idProducto;
 	}
@@ -53,5 +65,6 @@ public class Productos {
 	public void setMarcaId(Integer marcaId){
 		this.marcaId = marcaId;
 	}
+	
     
 }

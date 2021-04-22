@@ -84,7 +84,7 @@ public class MarcasDaoImplTest {
 		System.out.println();
 	}
 	
-	@Ignore
+	@Ignore 
 	public void pruebaActualizarMarca(){
 		System.out.println("Prueba unitaria de actualizarMarca");
 		Marcas marca = new Marcas();

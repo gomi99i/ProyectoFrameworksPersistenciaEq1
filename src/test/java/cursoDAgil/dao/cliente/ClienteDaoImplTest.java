@@ -28,6 +28,9 @@ public class ClienteDaoImplTest {
 			List<Cliente> lista = clienteDao.listarTodosClientes();
 			reg = lista.size();
 			assertEquals(lista.size(),reg);
+			for(Cliente aux : lista){
+				System.out.println("cantidad: " + aux.getDireccion().getCalle());
+			}
 		} catch(Exception ex){
 			System.out.println("Error " + ex);
 		}

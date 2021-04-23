@@ -23,10 +23,9 @@ public class DireccionDaoImpl implements DireccionDao {
 
 	@Override
 	public Integer nuevaDireccionCliente(Direccion direccion) {
-		// TODO Auto-generated method stub
 		try {
 			DireccionMapper direccionMapper = sqlSession.getMapper(DireccionMapper.class);
-			System.out.println("direccion creada con éxito");
+			System.out.println("Direccion creada con Ã©xito");
 			return direccionMapper.nuevaDireccionCliente(direccion);
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -59,12 +58,10 @@ public class DireccionDaoImpl implements DireccionDao {
 
 	@Override
 	public Integer eliminarDireccion(Map<String, Integer> mapDireccion) {
-		// TODO Auto-generated method stub
 		try{
 			DireccionMapper direccionMapper = sqlSession.getMapper(DireccionMapper.class);
-			System.out.println("Hasta la vista BABY");
+			System.out.println("Registro eliminado");
 			return direccionMapper.eliminarDireccion(mapDireccion);
-			
 		}catch (Exception e){
 			System.out.println("Error: " + e);
 		}
@@ -73,13 +70,11 @@ public class DireccionDaoImpl implements DireccionDao {
 
 	@Override
 	public Integer cambiarDireccion(Direccion direccion, Integer id) {
-		// TODO Auto-generated method stub
 		try{
 			DireccionMapper direccionMapper =sqlSession.getMapper(DireccionMapper.class);
-			System.out.println("Ya la cambie ve a checar a la base de datos");
+			System.out.println("Registro actualizado");
 			direccion.setIdDireccion(id);
 			return direccionMapper.cambiarDireccion(direccion);
-
 		}catch (Exception e){
 			System.out.println("Error" + e);
 		}

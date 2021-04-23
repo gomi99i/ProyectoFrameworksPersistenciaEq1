@@ -9,7 +9,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-//import org.junit.Ignore;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,16 +23,16 @@ public class DireccionDaoImplTest {
 	@Inject
 	DireccionDao direccionDao;
 
-	@Test
+	@Ignore
 	public void consultarDireccionPorId() {
 		Direccion direccion = new Direccion();
-		Map<String, Integer> mapDireccion = new HashMap<>(); // mapiamos esta we
-		mapDireccion.put("idDireccion", 1);// buscamos la direccion 1
+		Map<String, Integer> mapDireccion = new HashMap<>(); 
+		mapDireccion.put("idDireccion", 2);
 		try {
-			direccion = direccionDao.obtenerDireccionPorId(mapDireccion);// lo que trajo el map lo mandamos a nuestra variable
-			assertNotNull(direccion); // vemos si esta vacia
-			System.out.println("id:" + direccion.getIdDireccion());// imprimimos la id
-			System.out.println("calle:" + direccion.getCalle());// imprimimos la calle
+			direccion = direccionDao.obtenerDireccionPorId(mapDireccion);
+			assertNotNull(direccion);
+			System.out.println("id:" + direccion.getIdDireccion());
+			System.out.println("calle:" + direccion.getCalle());
 			System.out.println("Numero:" + direccion.getNumero());
 			System.out.println("Colonia:" + direccion.getColonia());
 			System.out.println("Ciudad:" + direccion.getCiudad());
@@ -44,7 +44,7 @@ public class DireccionDaoImplTest {
 		}
 	}
 
-	@Test
+	@Ignore
 	public void pruebaConsultarTodo() {
 		int reg;
 		System.out.println("Test consultar todas las direcciones");
@@ -53,13 +53,23 @@ public class DireccionDaoImplTest {
 			reg = lista.size();
 			assertEquals(lista.size(), reg);
 			System.out.println("\nRegistros en la tabla: " + reg);
+			for(Direccion direccion : lista){
+				System.out.println("id:" + direccion.getIdDireccion());
+				System.out.println("calle:" + direccion.getCalle());
+				System.out.println("Numero:" + direccion.getNumero());
+				System.out.println("Colonia:" + direccion.getColonia());
+				System.out.println("Ciudad:" + direccion.getCiudad());
+				System.out.println("Estado:" + direccion.getEstado());
+				System.out.println("Pais:" + direccion.getPais());
+				System.out.println("Codigo Postal:" + direccion.getCodigoPostal());
+				System.out.println();
+			}
 		} catch (Exception ex) {
 			System.out.println("error" + ex);
-
 		}
 	}
 
-	@Test
+	@Ignore
 	public void nuevoRegistro() {
 		Direccion direccion = new Direccion();
 		System.out.println("Test nuevo registro");
@@ -77,11 +87,11 @@ public class DireccionDaoImplTest {
 		}
 	}
 
-	@Test
+	@Ignore
 	public void eliminarDireccion(){
 		Direccion direccion = new Direccion();
 		Map<String, Integer> mapDireccion = new HashMap<>();
-		mapDireccion.put("idDireccion", 2);
+		mapDireccion.put("idDireccion", 11);
 		try{
 			direccion = direccionDao.obtenerDireccionPorId(mapDireccion);
 			assertNotNull(direccion); 
@@ -91,21 +101,19 @@ public class DireccionDaoImplTest {
 		}
 	}
 
-	@Test
+	@Ignore
 	public void cambiarDireccion(){
 		Direccion direccion = new Direccion();
 		Map<String, Integer> mapDireccion = new HashMap<>();
-		Integer CambiarId = 1; 
+		Integer CambiarId = 6; 
 		try{
 			mapDireccion.put("idDireccion",CambiarId);
 			direccion=direccionDao.obtenerDireccionPorId(mapDireccion);
 			assertNotNull(direccion);
-
-			direccion.setCalle("5 de mayo");
+			direccion.setCalle("6 de mayo");
 			direccionDao.cambiarDireccion(direccion, CambiarId);
 		}catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
 	}
-
 }

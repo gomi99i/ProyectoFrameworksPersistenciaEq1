@@ -1,7 +1,7 @@
 package cursoDAgil.bd.domain;
 
 public class Cliente {
-    
+     
     private Integer id;
     private String nombre;
     private String apellido;

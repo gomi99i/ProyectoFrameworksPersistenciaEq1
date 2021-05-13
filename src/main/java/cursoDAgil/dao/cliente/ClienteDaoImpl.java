@@ -11,9 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cursoDAgil.bd.domain.Cliente;
-import cursoDAgil.bd.domain.Direccion;
 import cursoDAgil.bd.mappers.ClienteMapper;
-import cursoDAgil.bd.mappers.DireccionMapper;
 
 @Named
 public class ClienteDaoImpl implements ClienteDao, Serializable {

@@ -28,7 +28,7 @@ public class Ganancias {
 	public String getFecha() {
 		return fecha;
 	}
-	public void setDate(String fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 }

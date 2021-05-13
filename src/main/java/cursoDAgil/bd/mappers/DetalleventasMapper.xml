@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MApper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cursoDAgil.bd.mappers.DetalleventasMapper">
+	<resultMap id="BaseResultMap" type="cursoDAgil.bd.domain.Detalleventas" >
+		<result column="ventaId" property="ventaId" jdbcType="INTEGER"/>
+		<result column="productoId" property="productoId" jdbcType="INTEGER"/>
+		<result column="cantidad" property="cantidad" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<resultMap id="ResultDetallesProductos" type="cursoDAgil.bd.domain.Detalleventas">
+		<result column="ventaId" property="ventaId" jdbcType="INTEGER"/>
+		<result column="productoId" property="productoId" jdbcType="INTEGER"/>
+		<result column="cantidad" property="cantidad" jdbcType="INTEGER"/>			
+		<association property="productos" column="productoId" resultMap="ProductosResultMap" /> 
+	</resultMap>
+	
+	<resultMap id="ProductosResultMap" type="cursoDAgil.bd.domain.Productos" >
+		<id column="idProducto" property="idProducto" />
+		<result column="nombre" property="nombre" />
+		<result column="precio" property="precio" />
+		<result column="precioVta" property="precioVta" />
+		<result column="cantidad" property="cantidad"/>
+		<result column="marcaId" property="marcaId" />
+	</resultMap>
+	
+	<select id="mostrarDetallesVentas" resultMap="ResultDetallesProductos" parameterType="hashMap">
+		SELECT pro.nombre, pro.precioVta, pro.marcaId, dvtas.ventaId, dvtas.cantidad, dvtas.productoId, pro.idProducto	
+		FROM detalleventas dvtas  INNER JOIN  productos AS pro ON dvtas.productoId = pro.idProducto WHERE ventaId=#{ventaId}
+		<!-- Falta hacer el join con la tabla marca -->
+	</select>
+	
+	<insert id="nuevoDetalleVenta" parameterType="cursoDAgil.bd.domain.Detalleventas">
+		INSERT INTO detalleventas (ventaId, productoId, cantidad) VALUES (#{ventaId}, #{productoId}, #{cantidad})
+	</insert>
+		
+</mapper>

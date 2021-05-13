@@ -22,7 +22,7 @@ public class MarcasDaoImplTest {
 	@Inject
 	MarcasDao marcasDao;
 	
-	@Ignore
+	@Test
 	public void desplegarTodasMarcar(){
 		System.out.println("Prueba unitaria de listarTodasMarcas");
 		try{

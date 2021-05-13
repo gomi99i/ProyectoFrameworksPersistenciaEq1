@@ -15,7 +15,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cursoDAgil.bd.domain.Cliente;
-import cursoDAgil.bd.domain.Direccion;
 import cursoDAgil.dao.cliente.ClienteDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,7 +25,7 @@ public class ClienteDaoImplTest {
 	ClienteDao clienteDao;
 	int reg;
 	
-	@Ignore
+	@Test
 	public void pruebaConsultarTodo(){
 		System.out.println("----------------Test consultar todos los clientes-----------------------");
 		try{
@@ -92,7 +91,6 @@ public class ClienteDaoImplTest {
 	
 	@Ignore
 	public void eliminarRegistro(){
-		Cliente cliente = new Cliente();
 		Map<String, Integer> mapCliente= new HashMap<>();
 		mapCliente.put("id",5);
 		System.out.println("----------------Test Eliminar Cliente -----------------------");

@@ -44,7 +44,7 @@ public class DireccionDaoImplTest {
 		}
 	}
 
-	@Ignore
+	@Test
 	public void pruebaConsultarTodo() {
 		int reg;
 		System.out.println("Test consultar todas las direcciones");

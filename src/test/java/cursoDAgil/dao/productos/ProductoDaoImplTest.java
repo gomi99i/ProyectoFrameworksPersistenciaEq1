@@ -44,11 +44,11 @@ public class ProductoDaoImplTest {
 		}
 	}
 	
-	@Ignore
+	@Test
 	public void pruebaConsultarTodo(){
 		System.out.println("----------------Test consultar todo -----------------------");
 		int reg;
-		System.out.println("Test consultar todas las direcciones");
+		System.out.println("Test consultar todas los productos");
 		try{
 			List<Productos> lista = productosDao.obtenerProductos();
 			reg=lista.size();

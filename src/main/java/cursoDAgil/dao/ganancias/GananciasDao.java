@@ -8,5 +8,5 @@ import cursoDAgil.bd.domain.Ganancias;
 public interface GananciasDao {
 	List<Ganancias> obtenerGanancias();
 	Integer nuevaGanancia(Ganancias ganancias);
-	Ganancias obtenerGananciaPorFecha(Map<String,String> mapGanancias);
+	List<Ganancias> obtenerGananciaPorFecha(Map<String,String> mapGanancias);
 }

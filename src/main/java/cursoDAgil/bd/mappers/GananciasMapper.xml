@@ -22,8 +22,8 @@
 
 	<insert id="nuevaGanancia" parameterType="cursoDAgil.bd.domain.Ganancias"
 		useGeneratedKeys="true" keyProperty="idGanancia">
-		INSERT INTO ganancias(idGanancia, ventaId, totalGanancia, fecha) 
-		VALUES (#{idGanancia},#{ventaId},#{totalGanancia},#{fecha})
+		INSERT INTO ganancias(ventaId, totalGanancia, fecha) 
+		VALUES (#{ventaId},#{totalGanancia},#{fecha})
 	</insert>
  
 </mapper>
